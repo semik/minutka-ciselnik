@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[a4paper,margin=15mm]{geometry}
+\usepackage{tikz}
+\usepackage{xparse}
+
+\newcounter{Min}
+
+\NewDocumentCommand{\Clock}{O{2.2cm}O{\LARGE}O{white}}{%
+\def\radius{#1}%
+\def\square{3.2cm}%
+ \begin{tikzpicture}[line cap=rect,line width=0.055*\radius]
+  \draw[dotted][line width=0.01pt] (-\square,-\square) -- (\square,-\square) -- (\square,\square) -- (-\square,\square) -- (-\square,-\square);
+  \draw[line width=0.01pt] (0,0) circle [radius=0.05*\radius];
+  \foreach \angle [count=\xi] in {0,6,...,354}
+{
+  \draw[line width=1pt] (\angle:\radius) -- (\angle:1.09*\radius);
+}
+\setcounter{Min}{0}
+\foreach \angle [count=\x*5] in {90,60,...,-250}
+{
+  \draw[line width=0.04*\radius] (\angle:1.01*\radius) -- (\angle:1.1*\radius);
+  \node[font=#2] at (\angle:1.28*\radius) {\textsf{\textbf{\theMin}}};
+  \addtocounter{Min}{5};
+};
+
+\end{tikzpicture}%
+}
+
+\begin{document}
+
+\Clock\hspace{1cm}\Clock
+
+\vspace{1cm}
+
+\Clock\hspace{1cm}\Clock
+
+\vspace{1cm}
+
+\Clock\hspace{1cm}\Clock
+
+\vspace{0.5cm}
+
+\huge{\textsf{\textbf{Ostropestřec}}}
+
+\vspace{0.5cm}
+
+\huge{\textsf{\textbf{Kokos}}}
+
+\vspace{0.5cm}
+
+\huge{\textsf{\textbf{Chia}}}
+
+\end{document}
