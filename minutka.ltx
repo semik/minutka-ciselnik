@@ -9,7 +9,7 @@
 \def\radius{#1}%
 \def\square{3.2cm}%
  \begin{tikzpicture}[line cap=rect,line width=0.055*\radius]
-  \draw[dotted][line width=0.01pt] (-\square,-\square) -- (\square,-\square) -- (\square,\square) -- (-\square,\square) -- (-\square,-\square);
+  \draw[densely dotted][line width=0.2pt] (-\square,-\square) -- (\square,-\square) -- (\square,\square) -- (-\square,\square) -- (-\square,-\square);
   \draw[line width=0.01pt] (0,0) circle [radius=0.05*\radius];
   \foreach \angle [count=\xi] in {0,6,...,354}
 {
